@@ -16,12 +16,12 @@ func DBConn() (*pg.DB, error) {
 	if err != nil {
 		return nil, err
 	}
-
+	
 	db := pg.Connect(opts)
 	if err := checkConn(db); err != nil {
 		return nil, err
 	}
-
+	
 	if viper.GetBool("db_debug") {
 		db.OnQueryProcessed(func(event *pg.QueryProcessedEvent) {
 			query, err := event.FormattedQuery()

@@ -57,7 +57,8 @@ func init() {
 	// will be global for your application.
 	RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.go-base.yaml)")
 
-	viper.SetDefault("database_url", "postgres://postgres:postgres@localhost:5432/gobase?sslmode=disable")
+	viper.SetDefault("database_url", 
+"postgres://postgres:postgres@localhost:5432/agilerouter?sslmode=disable")
 
 	RootCmd.PersistentFlags().Bool("db_debug", false, "log sql to console")
 	viper.BindPFlag("db_debug", RootCmd.PersistentFlags().Lookup("db_debug"))
